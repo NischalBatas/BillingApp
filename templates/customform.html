@@ -1,0 +1,15 @@
+{%extends 'template.html'%}
+
+{%block content%}
+<h1>Customform</h1>
+
+<form action="" method="post">
+    {%csrf_token%}
+    
+    <input type="text" placeholder="Product name" value="{{customer.name}}" disabled name=""><br>
+    <input type="text" placeholder="Product name" name="prod_name"><br>
+    <input type="text" placeholder="Quantity" name="quantity"><br>
+    <input type="text" placeholder="Rate" name="rate"><br>
+    <button type="submit">Submit</button>
+</form>
+{%endblock%}

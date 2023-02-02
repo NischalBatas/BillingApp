@@ -1,0 +1,124 @@
+{%load static%}
+{%static 'images' as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
+    <title>Invoice</title>
+</head>
+
+<body>
+
+   
+    <div class="webs">
+        <div class="header">
+            <div class="header_title">
+                <p>Siddha Gufa Driving Prashikshan Kendra pvt.ltd</p>
+            </div>
+            <div class="header_address">
+                <p>Bimalnagar,Tanahun</p>
+            </div>
+            <div class="header_email">
+                <i class="fa fa-envelope"></i>
+                <p>Siddhagufadrivingcenter@gmail.com</p>
+            </div>
+            <div class="header_phone">
+                <i class="fa fa-phone"></i>
+                <p>9817147214</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section_title">
+                <p>Sales Invoice</p>
+            </div>
+            <div class="section_box">
+                
+                <div class="section_box_group1">
+                    <p>Bill To:</p>
+                    <p>{{c2.name}}</p>
+                    <p>{{c2.address}}</p>
+                    <div class="section_box_email">
+                        <i class="fa fa-envelope"></i>
+                        <p class="wrapsemail">{{c2.email_address}}</p>
+                    </div>
+                    <div class="section_box_phone">
+                        <i class="fa fa-phone"></i>
+                        <p>{{c2.phone}}</p>
+                    </div>
+                </div>
+                <div class="section_box_group2">
+                    <div class="section_box_group2_item1">Invoice No :{{c2.invoice_number}} </div>
+                    <div class="section_box_group2_item2">Date: <span id="times"></span></div>
+                    <div class="section_box_group2_item3">Purchase Order No :{{c2.id}}</div>
+
+                    <div class="section_box_group2_item4">Due Date: <span id="time"></span></div>
+                </div>
+            </div>
+        </div>
+
+
+     
+        <div class="tables">
+            <table>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Description</th>
+                    <th>QTY</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                </tr>
+                {%for detail in p1%}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{detail.prod_name}}</td>
+                    <td>{{detail.quantity}}</td>
+                    <td>{{detail.rate|floatformat:2}}</td>
+                    <td>{{detail.amount|floatformat:2}}</td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    
+        <div class="table_total">
+            <p>Total</p>
+            <p>NPR.{{p2.total_price}}</p>
+        </div>
+        <div class="table_paid">
+            <p>Paid</p>
+            <p>NPR. 0.00</p>
+        </div>
+        <div class="table_balance">
+            <p>Balance</p>
+            <p>NPR. {{p2.total_price}}</p>
+        </div>
+
+        <div class="declare">
+            <div class="declare1">
+                <p>We declare that this
+                    invoice shows the actual price of the goods described and that all particulars are
+                    true and correct.</p>
+            </div>
+            <div class="declare2">
+                <p>Authorized Signatory</p>
+            </div>
+        </div>
+        <div class="comp">
+            <p>This is computer generated invoice</p>
+        </div>
+
+
+    </div>
+
+
+
+</body>
+<script src="{% static 'js/script.js'%}"></script>
+
+</html>

@@ -1,0 +1,46 @@
+{%extends 'template.html'%}
+{%load static%}
+{%static 'images' as baseUrl%}
+<!DOCTYPE html>
+<html lang="en">
+
+    {%block content%}
+  
+    <h2>Add Product</h2>
+    <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+
+
+        <button type="submit">Add Product</button>
+    </form>
+    <br>
+
+    <div class="tabless">
+        <table>
+            <tr>
+                <th>S.No.</th>
+                <th>Description</th>
+                <th>QTY</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+            {%for prod in p1%}
+            <tr>
+                <td>{{forloop.counter }}</td>
+                <td>{{prod.prod_name}}</td>
+                <td>{{prod.quantity}}</td>
+                <td>{{prod.rate|floatformat:2}}</td>
+                <td>{{prod.total_amount|floatformat:2}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <div class="table_total">
+            <p>Total</p>
+            <!-- <p>NPR. {{p2.total_price}}</p> -->
+        </div>
+    </div>
+    <a href="{% url 'bills' c2.id%}">Next</a>
+    <!-- {%include 'bills.html'%} -->
+
+{%endblock%}

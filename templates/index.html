@@ -1,0 +1,28 @@
+{%extends 'template.html'%}
+{%load static%}
+{%static 'images' as baseUrl%}
+{%block content%}
+    <h1>Billing</h1>
+
+    <form action="" method="post">
+      {%csrf_token%}
+      {{form.as_p}}
+      <button type="submit">Add Customer</button>
+    </form>
+    <br>
+    <div>
+      <h2>Customer List</h2> <br>
+  {%for detail1 in d1%}
+  <a href="{% url 'customer' detail1.id%}">{{detail1.name}} </a>
+  {{detail1.joined_date}} <br>
+  {%endfor%}
+
+  {%for detail1 in d1%}
+  <a href="{% url 'customform' detail1.id%}">{{detail1.name}} </a>
+  {{detail1.joined_date}} <br>
+  {%endfor%}
+</div>
+  <br>
+
+  
+{%endblock%}
