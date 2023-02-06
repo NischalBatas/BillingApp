@@ -11,7 +11,8 @@ class Detail(models.Model):
     email_address=models.EmailField(null=True,blank=True)
     phone=models.BigIntegerField(null=True,blank=True)
     invoice_number = models.PositiveIntegerField(default=0)
-    joined_date = models.DateTimeField(auto_now_add=True)
+    joined_date = models.DateField(auto_now_add=True)
+    joined_datetime = models.DateTimeField(auto_now_add=True)
 
     
         
@@ -25,10 +26,12 @@ class Detail(models.Model):
         super().save(*args, **kwargs)
   
 
+
 PRODUCT_CHOICES=(
     ("Bike","Bike"),
     ("Car","Car"),
 )
+
 
 class productDetail(models.Model):
     customer=models.ForeignKey(Detail,on_delete=models.CASCADE)
@@ -38,9 +41,6 @@ class productDetail(models.Model):
     amount=models.FloatField(null=True)
 
 
-    def total_amount(self, *args, **kwargs):
-        self.amount=self.quantity * self.rate
-        super().save(*args, **kwargs)
     
   
 

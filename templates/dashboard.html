@@ -1,0 +1,162 @@
+{%extends 'template.html'%}
+{%load static%}
+{%block content%}
+    <div class="main_content_group1_first">
+        <p>Profile Statistics</p>
+    </div>
+    <!-- 1st content -->
+    <div class="main_content">
+        
+        <div class="main_content_group1">
+            
+            <div class="main_content_group1_second">
+                <div class="main_content_group1_second_item1">
+                    <div class="main_content_group1_second_item1_imgs">
+                        <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                    </div>
+                    <div class="main_content_group1_second_item1_description">
+                        <p>Total customer</p>
+                        <span>{{cust1}}</span>
+                    </div>
+                </div>
+                <div class="main_content_group1_second_item2">
+                    <div class="main_content_group1_second_item2_imgs">
+                        <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                    </div>
+                    <div class="main_content_group1_second_item2_description">
+                        <p>Total Bike</p>
+                        <span>{{cust2}}</span>
+                    </div>
+                </div>
+                <div class="main_content_group1_second_item3">
+                    <div class="main_content_group1_second_item3_imgs">
+                        <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                    </div>
+                    <div class="main_content_group1_second_item3_description">
+                        <p>Total Car</p>
+                        <span>{{cust3}}</span>
+                    </div>
+                </div>
+                <div class="main_content_group1_second_item4">
+                    <div class="main_content_group1_second_item4_imgs">
+                        <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                    </div>
+                    <div class="main_content_group1_second_item4_description">
+                        <p>Today Total</p>
+                        <span>{{cust4}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main_content_group1_third">
+                <img src="{% static 'imgs/bargraph'%}s.jpg" alt="">
+            </div>
+
+
+        </div>
+        <div class="main_content_group2">
+            <div></div>
+            <div class="main_content_group2_item1">
+                <div class="main_content_group2_item1_imgs">
+                    <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                </div>
+                <div class="main_content_group2_item1_description">
+                    <p>John Duck</p>
+                    <span>@johnducky</span>
+                </div>
+            </div>
+
+            <div class="main_content_group2_item2">
+                
+                <div class="main_content_group2_item2_g2">
+                    <div class="main_content_group2_item2_g1">
+                        <p>Recenet Customers</p>
+                    </div>
+                    <div class="customer1">
+
+                        <div class="customer1_img">
+                            <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                        </div>
+                        <div class="customer1_description">
+                            <p>John Duck</p>
+                            <span>@johnducky</span>
+                        </div>
+
+                    </div>
+                    <div class="customer2">
+
+                        <div class="customer2_img">
+                            <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                        </div>
+                        <div class="customer2_description">
+                            <p>John Duck</p>
+                            <span>@johnducky</span>
+                        </div>
+
+                    </div>
+                    <div class="customer3">
+
+                        <div class="customer3_img">
+                            <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
+                        </div>
+                        <div class="customer3_description">
+                            <p>John Duck</p>
+                            <span>@johnducky</span>
+                        </div>
+
+                    </div>
+                    <div class="main_content_group2_item2_g3">
+                        <button>See All</button>
+                    </div>
+                </div>
+
+               
+            
+                <div class="main_content_group2_item3">
+                    <img src="{% static 'imgs/Pie-char'%}t.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="customer_tables">
+        <table id="customers">
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+              <th>Country</th>
+              
+            </tr>
+            <tr>
+              <td>Alfreds Futterkiste</td>
+              <td>Maria Anders</td>
+              <td>Germany</td>
+          
+            </tr>
+            <tr>
+              <td>Berglunds snabbköp</td>
+              <td>Christina Berglund</td>
+              <td>Sweden</td>
+              
+            </tr>
+            <tr>
+                <td>Berglunds snabbköp</td>
+                <td>Christina Berglund</td>
+                <td>Sweden</td>
+      
+              </tr>
+              <tr>
+                <td>Berglunds snabbköp</td>
+                <td>Christina Berglund</td>
+                <td>Sweden</td>
+             
+              </tr>
+           
+            
+          </table>
+          
+    </div>
+
+
+
+
+{%endblock%}

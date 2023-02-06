@@ -2,27 +2,68 @@
 {%load static%}
 {%static 'images' as baseUrl%}
 {%block content%}
-    <h1>Billing</h1>
 
-    <form action="" method="post">
-      {%csrf_token%}
-      {{form.as_p}}
-      <button type="submit">Add Customer</button>
-    </form>
-    <br>
-    <div>
-      <h2>Customer List</h2> <br>
-  {%for detail1 in d1%}
-  <a href="{% url 'customer' detail1.id%}">{{detail1.name}} </a>
-  {{detail1.joined_date}} <br>
-  {%endfor%}
 
-  {%for detail1 in d1%}
-  <a href="{% url 'customform' detail1.id%}">{{detail1.name}} </a>
-  {{detail1.joined_date}} <br>
-  {%endfor%}
+<div class="index_customers">
+  <div class="index_customers_billforms">
+    <div class="index_customers_billforms_title">
+      <p>Billing</p>
+    </div>
+    <div class="index_customers_billforms_form">
+      <form action="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <div class="add_btn">
+        <button type="submit">Add Customer</button>
+          </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="index_customers_table">
+    <div class="index_customers_table_title">
+      <p>Customer List</p>
+    </div>
+    <div class="index_customer_table_list">
+      <table id="customers_table">
+        <tr>
+          <th>S.No.</th>
+          <th>Name</th>
+          <th>Issued Date</th>
+          <th>Action</th>
+        </tr>
+        {%for detail1 in d1%}
+        <tr>
+          <td>{{forloop.revcounter}}</td>
+          <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name}} </a></td>
+          <td>{{detail1.joined_date}}</td>
+          <td><a href="{% url 'update_customer' detail1.id%}"><button id="updatebtn" type="submit">Update</button></a>
+            <a href="{% url 'delete_customer' detail1.id%}"><button id="deletebtn" type="submit">Delete</button></a>
+          </td>
+        </tr>
+        {%endfor%}
+
+
+
+      </table>
+
+    </div>
+  </div>
 </div>
-  <br>
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {%endblock%}

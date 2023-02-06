@@ -1,19 +1,69 @@
 {%load static%}
+{%static 'images' as baseUrl%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
-<body>
-    <a href="/"><button>Home</button></a>
-    
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar_menu">
+            <div class="navbar_menu_icon">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar_menu_icon4">
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="navbar_title_logo">
+                <a href="{% url 'index'%}">Siddha</a>
+            </div>
+            <div class="navbar_menu_icon2">
+                <i class="fa fa-search"></i>
+            </div>
+            <div class="navbar_menu_icon3">
+                <i class="fa fa-close"></i>
+            </div>
+        </div>
+
+        <div class="navbar_title">
+
+            <div class="navbar_title_search " id="searchborder">
+                <input type="text" placeholder="Search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+
+            </div>
+
+        </div>
+        <div class="navbar_list">
+            <ul>
+                <div class="driving_image"><img src="{% static 'imgs/imgs.png'%}" alt=""><a href="">Hello,Admin</a></div>
+                <li><a href="{% url 'index'%}"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="{% url 'dashboard'%}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li><a href=""><i class="fa fa-user"></i> Customers</a></li>
+                <li><a href=""><i class="fa fa-info"></i> Info</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- main content -->
+    {%include 'messages.html'%}
     {%block content%}
     {%endblock%}
-    <script src="{% static 'js/script.js'%}"></script>
+
+
+
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/navbar_script.js'%}"></script>
+
 </body>
 </html>

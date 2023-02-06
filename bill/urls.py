@@ -8,7 +8,13 @@ urlpatterns = [
     path('customer/<int:id>',views.customer,name='customer'),
     path('bills/<int:id>',views.bills,name='bills'),
     path('prod_update',views.prod_update,name='prod_update'),
-    path('customform/<int:id>',views.customform,name='customform')
+    path('customform/<int:id>',views.customform,name='customform'),
+    path('delete_product/<int:id>',views.delete_product,name='delete_product'),
+    path('update_product/<int:id>',views.update_product,name='update_product'),
+    path('delete_customer/<int:id>',views.delete_customer,name='delete_customer'),
+    path('update_customer/<int:id>',views.update_customer,name='update_customer'),
+    path('bar_graph',views.bar_graph_view,name='bar_graph'),
+    path('dashboard',views.dashboard,name='dashboard')
 ]
 
 
