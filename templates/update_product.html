@@ -1,31 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Update</h1>
-    {%if prod1%}
-    <form action="{% url 'update_product' prod1.id%}" method="post">
-        {%csrf_token%}
-        
-        <input type="text" placeholder="Product name" value="{{customer.name}}" disabled name=""><br>
-        <select name="prod_name" id="" >
-            <option value="Bike">Bike</option>
-            {% if prod1.prod_name == "Car"%}
-            <option value="Car" selected>Car</option>
-            {%else%}
-            <option value="Car" >Car</option>
+{%extends 'template.html'%}
+
+{%block content%}
+
+
+
+<div class="customers_product">
+    <div class="customers_product_prodforms">
+        <div class="customers_product_prodforms_title">
+            <p>Product</p>
+        </div>
+        <div class="customers_product_prodforms_form">
+
+            {%if prod1%}
+            <form action="{% url 'update_product' prod1.id%}" method="post">
+                {%csrf_token%}
+                <p>
+                    <label for="">Customer :</label>
+                    <input type="text" placeholder="Product name" value="{{customer.name}}" disabled name="">
+                </p>
+                <span> <label for="">Category :</label>
+
+                    <select name="prod_name" id="">
+                        <option value="Bike">Bike</option>
+                        {% if prod1.prod_name == "Car"%}
+                        <option value="Car" selected>Car</option>
+                        {%else%}
+                        <option value="Car">Car</option>
+                        {%endif%}
+                    </select>
+                </span>
+                <p>
+                    <label for="">Quantity :</label>
+                    <input type="number" placeholder="Quantity" name="quantity" value="{{prod1.quantity}}">
+
+                </p>
+                <p>
+                    <label for="">Price :</label>
+                    <input type="number" placeholder="Rate" name="rate" value="{{prod1.rate}}">
+                </p>
+                <div class="add_btn">
+                    <button type="submit">Add Product</button>
+                </div>
+            </form>
             {%endif%}
-        </select><br>
-       
-        <input type="number" placeholder="Quantity" name="quantity" value="{{prod1.quantity}}"><br>
-        <input type="number" placeholder="Rate" name="rate" value="{{prod1.rate}}"><br>
-        <button type="submit">Submit</button>
-    </form>
-    {%endif%}
-</body>
-</html>
+        </div>
+    </div>
+    {%endblock%}

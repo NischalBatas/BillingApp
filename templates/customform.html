@@ -1,7 +1,105 @@
 {%extends 'template.html'%}
 
 {%block content%}
-<h1>Customform</h1>
+
+
+
+
+<div class="customers_product">
+    <div class="customers_product_prodforms">
+        <div class="customers_product_prodforms_title">
+            <p>Product</p>
+        </div>
+        <div class="customers_product_prodforms_form">
+            <form action="" method="post">
+                {%csrf_token%}
+                <p>
+                    <label for="">Customer :</label>
+                    <input type="text" placeholder="Customer name" value="{{customer.name}}" disabled name="">
+
+                </p>
+                <span> <label for="">Category :</label>
+                    <select name="prod_name">
+                        <option value="Bike">Bike</option>
+                        <option value="Car">Car</option>
+                    </select>
+                </span>
+                <p>
+                    <label for="">Quantity :</label>
+                    <input type="number" placeholder="Quantity" name="quantity">
+                </p>
+                <p>
+                    <label for="">Price :</label>
+                    <input type="number" placeholder="Price" name="rate">
+                </p>
+                <div class="add_btn">
+                <button type="submit">Add Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="index_customers_table">
+        <div class="index_customers_table_title">
+            <p>Product List</p>
+        </div>
+        <div class="index_customer_table_list">
+            <table id="customers_table">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Category</th>
+                    <th>QTY</th>
+                    <th>Rate</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                </tr>
+                {%for prod in p1%}
+                <tr>
+                    <td>{{forloop.counter }}</td>
+                    <td>{{prod.prod_name}}</td>
+                    <td>{{prod.quantity}}</td>
+                    <td>{{prod.rate|floatformat:2}}</td>
+                    <td>{{prod.amount|floatformat:2}}</td>
+                    <td>
+                        <a href="{% url 'update_product' prod.id%}"><button id="updatebtn" type="submit">Update</button></a>
+                        <a href="{% url 'delete_product' prod.id%}"><button id="deletebtn" type="submit">Delete</button> </a>
+                       
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <a href="{% url 'bills' customer.id%}">Next</a>
+
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>Customform</h1>
 
 <form action="" method="post">
     {%csrf_token%}
@@ -11,7 +109,6 @@
         <option value="Bike">Bike</option>
         <option value="Car">Car</option>
     </select><br>
-    <!-- <input type="text" placeholder="Product name" name="prod_name"><br> -->
     <input type="number" placeholder="Quantity" name="quantity"><br>
     <input type="number" placeholder="Rate" name="rate"><br>
     <button type="submit">Submit</button>
@@ -41,8 +138,7 @@
     </table>
     <div class="table_total">
         <p>Total</p>
-        <!-- <p>NPR. {{p2.total_price}}</p> -->
     </div>
 </div>
-<a href="{% url 'bills' customer.id%}">Next</a>
+<a href="{% url 'bills' customer.id%}">Next</a> -->
 {%endblock%}

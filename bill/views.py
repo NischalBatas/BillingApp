@@ -11,7 +11,6 @@ import plotly.express as px
 
 def index(request):
     detail1 = Detail.objects.all().order_by('-id').values()
-    
     if request.method == "POST":
         form = customerDetailForms(request.POST)
         if form.is_valid():
@@ -89,6 +88,9 @@ def customform(request, id):
     }
     return render(request,'customform.html',context)
 
+
+
+
 def delete_product(request, id):
     prod=productDetail.objects.get(id=id)
     customer = prod.customer.id
@@ -134,8 +136,12 @@ def dashboard(request):
     todays = date.today()
     cust5=Detail.objects.filter(joined_date=todays)
     cust4=cust5.count()
-    print(todays)
+    detail1 = Detail.objects.all().order_by('-id').values()
+    detail2=Detail.objects.all().order_by('-id')[:3]
+    
     context = {
+        'd1': detail1,
+        'd2': detail2,
         'cust1':cust1,
         'cust2':cust2,
         'cust3':cust3,
@@ -146,6 +152,14 @@ def dashboard(request):
     return render(request,'dashboard.html',context)
 
 
+def customer_list(request):
+    detail1 = Detail.objects.all().order_by('-id').values()
+    detail2=Detail.objects.all().order_by('-id')[:3]
+    context = {
+          'd1': detail1,
+          
+    }
+    return render(request,'customer_list.html',context)
 
 
 def page_not_found(request, exception):

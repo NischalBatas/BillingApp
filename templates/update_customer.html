@@ -1,28 +1,24 @@
-{%load static%}
-{%static 'images' as baseUrl%}
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'template.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+{%block content%}
 
-</head>
 
-<body>
-    <h2>Update Customer</h2>
-    <form action="" method="post">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">Add Product</button>
-    </form>
-<br>
+<div class="index_customers">
+    <div class="index_customers_billforms">
+      <div class="index_customers_billforms_title">
+        <p>Billing</p>
+      </div>
+      <div class="index_customers_billforms_form">
+        <form action="" method="post">
+          {%csrf_token%}
+          {{form.as_p}}
+          <div class="add_btn">
+          <button type="submit">Add Customer</button>
+            </div>
+        </form>
+      </div>
+    </div>
+    </div>
 
-    
-  
-</body>
 
-</html>
+{%endblock%}
