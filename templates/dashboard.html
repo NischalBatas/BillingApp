@@ -48,6 +48,7 @@
                 </div>
             </div>
             <div class="main_content_group1_third">
+                <!-- <div id="bar-graph"></div> -->
                 <img src="{% static 'imgs/bargraph'%}s.jpg" alt="">
             </div>
 
@@ -109,13 +110,15 @@
                     <div class="main_content_group2_item2_g3">
                         <a href="{% url 'customer_list'%}"><button>See All</button></a>
                     </div>
+                
+                    
                 </div>
-
-               
-            
+                <!-- <div id="pie-chart"></div> -->
                 <div class="main_content_group2_item3">
-                    <img src="{% static 'imgs/Pie-char'%}t.jpg" alt="">
+                    <img src="{% static 'imgs/Pie-chart.jpg'%}" alt="">
                 </div>
+              
+            
             </div>
         </div>
     </div>
@@ -159,16 +162,16 @@
     </div> -->
    
 
-    <div class="index_customers">
+    <div class="dashboard_customerss">
        
       
       
-        <div class="index_customers_table">
-          <div class="index_customers_table_title">
+        <div class="dashboard_customerss_table">
+          <div class="dashboard_customerss_table_title">
             <p>Customer List</p>
           </div>
-          <div class="index_customer_table_list">
-            <table id="customers_table">
+          <div class="dashboard_customerss_table_list">
+            <table id="customers_tables">
               <tr>
                 <th>S.No.</th>
                 <th>Name</th>
@@ -193,8 +196,17 @@
           </div>
         </div>
       </div>
+   
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     
+    
+      <script>
+          Plotly.newPlot('bar-graph', JSON.parse('{{ fig|escapejs }}'));
+      </script>
       
-
-
+      <!-- <div id="pie-chart"></div> -->
+      <script>
+        Plotly.newPlot('pie-chart', JSON.parse('{{ fig2|escapejs }}'));
+    </script>
 
 {%endblock%}

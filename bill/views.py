@@ -6,6 +6,8 @@ from django.db.models import Sum
 from django.contrib import messages
 from datetime import date
 import plotly.express as px
+import plotly
+import json
 # Create your views here.
 
 
@@ -138,7 +140,12 @@ def dashboard(request):
     cust4=cust5.count()
     detail1 = Detail.objects.all().order_by('-id').values()
     detail2=Detail.objects.all().order_by('-id')[:3]
-    
+    data = productDetail.objects.values('prod_name', 'quantity').order_by('quantity')
+    fig = px.bar(data, x='prod_name', y='quantity',color="prod_name",title="Bar-Graph")
+   
+    datapie = productDetail.objects.values('prod_name', 'quantity').order_by('rate')
+    fig2 = px.pie(datapie, names='prod_name', values='quantity',color="prod_name",title="Bar-Graph")
+   
     context = {
         'd1': detail1,
         'd2': detail2,
@@ -146,6 +153,8 @@ def dashboard(request):
         'cust2':cust2,
         'cust3':cust3,
         'cust4':cust4,
+        'fig': json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder),
+        'fig2': json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
      
 
     }
@@ -165,9 +174,7 @@ def customer_list(request):
 def page_not_found(request, exception):
     return render(request, '404.html', status=404)
 
-    
-import plotly
-import json
+
 def bar_graph_view(request):
     data = Detail.objects.values('name', 'joined_date').order_by('joined_date')
     fig = px.bar(data, x='name', y='joined_date',color="joined_date",title="Bar-Graph")

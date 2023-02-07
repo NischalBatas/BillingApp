@@ -15,7 +15,7 @@
                 {%csrf_token%}
                 <p>
                     <label for="">Customer :</label>
-                    <input type="text" placeholder="Customer name" value="{{customer.name}}" disabled name="">
+                    <input type="text" placeholder="Customer name" value="{{customer.name}}" disabled name="" required>
 
                 </p>
                 <span> <label for="">Category :</label>
@@ -26,11 +26,11 @@
                 </span>
                 <p>
                     <label for="">Quantity :</label>
-                    <input type="number" placeholder="Quantity" name="quantity">
+                    <input type="number" placeholder="Quantity" name="quantity" required>
                 </p>
                 <p>
                     <label for="">Price :</label>
-                    <input type="number" placeholder="Price" name="rate">
+                    <input type="number" placeholder="Price" name="rate" required>
                 </p>
                 <div class="add_btn">
                 <button type="submit">Add Product</button>
