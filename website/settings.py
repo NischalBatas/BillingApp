@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%mm^k2^_-p&5-b!$$=x!iswzzo2vioyq$9jj79!nlcoo+ntp1d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['siddhabill.netlify.app']
 
 
 # Application definition
