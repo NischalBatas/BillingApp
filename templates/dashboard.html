@@ -48,8 +48,7 @@
                 </div>
             </div>
             <div class="main_content_group1_third">
-                <!-- <div id="bar-graph"></div> -->
-                <img src="{% static 'imgs/bargraph'%}s.jpg" alt="">
+                <div id="pie-chart"></div>
             </div>
 
 
@@ -61,7 +60,7 @@
                     <img src="{% static 'imgs/imgs.png'%}" alt="" srcset="">
                 </div>
                 <div class="main_content_group2_item1_description">
-                    <p>AdminSiddha</p>
+                    <p>{{user.username|capfirst}}</p>
                     <span>@adminSiddha</span>
                 </div>
             </div>
@@ -79,8 +78,8 @@
                             <img src="{% static 'imgs/a.jpg'%}" alt="" srcset="">
                         </div>
                         <div class="customer1_description">
-                            <p>{{cust.name}}</p>
-                            <span>{{cust.address}}</span>
+                            <p>{{cust.name|capfirst}}</p>
+                            <span>{{cust.address|capfirst}}</span>
                         </div>
 
                     </div>
@@ -113,55 +112,14 @@
                 
                     
                 </div>
-                <!-- <div id="pie-chart"></div> -->
-                <div class="main_content_group2_item3">
-                    <img src="{% static 'imgs/Pie-chart.jpg'%}" alt="">
-                </div>
+             
               
             
             </div>
         </div>
     </div>
 
-    <!-- <div class="customer_tables">
-        <table id="customers">
-            <tr>
-              <th>Company</th>
-              <th>Contact</th>
-              <th>Country</th>
-              
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-          
-            </tr>
-            <tr>
-              <td>Berglunds snabbköp</td>
-              <td>Christina Berglund</td>
-              <td>Sweden</td>
-              
-            </tr>
-            <tr>
-                <td>Berglunds snabbköp</td>
-                <td>Christina Berglund</td>
-                <td>Sweden</td>
-      
-              </tr>
-              <tr>
-                <td>Berglunds snabbköp</td>
-                <td>Christina Berglund</td>
-                <td>Sweden</td>
-             
-              </tr>
-           
-            
-          </table>
-          
-    </div> -->
    
-
     <div class="dashboard_customerss">
        
       
@@ -181,7 +139,7 @@
               {%for detail1 in d1%}
               <tr>
                 <td>{{forloop.counter}}</td>
-                <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name}} </a></td>
+                <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name|capfirst}} </a></td>
                 <td>{{detail1.joined_date}}</td>
                 <td><a href="{% url 'update_customer' detail1.id%}"><button id="updatebtn" type="submit">Update</button></a>
                   <a href="{% url 'delete_customer' detail1.id%}"><button id="deletebtn" type="submit">Delete</button></a>
@@ -200,11 +158,8 @@
       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
      
     
-      <script>
-          Plotly.newPlot('bar-graph', JSON.parse('{{ fig|escapejs }}'));
-      </script>
       
-      <!-- <div id="pie-chart"></div> -->
+
       <script>
         Plotly.newPlot('pie-chart', JSON.parse('{{ fig2|escapejs }}'));
     </script>

@@ -1,0 +1,44 @@
+{%extends 'template.html'%}
+
+{%block content%}
+
+
+<div class="customer_login_form">
+<div class="customers_product">
+    <div class="customers_product_prodforms">
+        <div class="customers_product_prodforms_title">
+            <p>Signup</p>
+        </div>
+        <div class="customers_product_prodforms_form">
+
+            <form action="" method="post">
+                {%csrf_token%}
+                <p>
+                    <label for="">Username :</label>
+                    <input type="text" placeholder="Username" name="username">
+                </p>
+                <p>
+                    <label for="">Email :</label>
+                    <input type="text" placeholder="email" name="email">
+                </p>
+                <p>
+                    <label for="">Password :</label>
+                    <input type="password" placeholder="Password" name="password">
+
+                </p>
+                <p>
+                    <label for="">Confirm Password :</label>
+                    <input type="password" placeholder="Confirm Password" name="cpassword">
+
+                </p>
+             
+                <div class="add_btn">
+                    <button type="submit">Signup</button>
+                </div>
+                <div class="create_btn"><a href="{%url 'login'%}">Already have an account</a></div>
+            </form>
+       
+        </div>
+    </div>
+</div>
+    {%endblock%}

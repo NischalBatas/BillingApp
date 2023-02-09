@@ -8,6 +8,8 @@ from datetime import date
 import plotly.express as px
 import plotly
 import json
+from django.contrib.auth import login,logout,authenticate
+from django.contrib.auth.models import User
 # Create your views here.
 
 
@@ -139,13 +141,13 @@ def dashboard(request):
     cust5=Detail.objects.filter(joined_date=todays)
     cust4=cust5.count()
     detail1 = Detail.objects.all().order_by('-id').values()
-    detail2=Detail.objects.all().order_by('-id')[:3]
+    detail2=Detail.objects.all().order_by('-id')[:4]
     data = productDetail.objects.values('prod_name', 'quantity').order_by('quantity')
     fig = px.bar(data, x='prod_name', y='quantity',color="prod_name",title="Bar-Graph")
    
     datapie = productDetail.objects.values('prod_name', 'quantity').order_by('rate')
     fig2 = px.pie(datapie, names='prod_name', values='quantity',color="prod_name",title="Bar-Graph")
-   
+
     context = {
         'd1': detail1,
         'd2': detail2,
@@ -180,3 +182,31 @@ def bar_graph_view(request):
     fig = px.bar(data, x='name', y='joined_date',color="joined_date",title="Bar-Graph")
    
     return render(request, 'graph.html', {'fig': json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)})
+
+
+def user_login(request):
+    if request.method=="POST":
+        username=request.POST['username']
+        password=request.POST['password']
+        user= authenticate(username=username,password=password)
+        if user is not None:
+            login(request,user)
+            print('login')
+            return redirect('/')
+            
+    return render(request,'logins.html')
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
+
+def user_signup(request):
+    if request.method=="POST":
+        username=request.POST['username']
+        email=request.POST['email']
+        password1=request.POST['password']
+        password2=request.POST['cpassword']
+        user=User.objects.create_superuser(username=username,password=password1,email=email)
+        user.save()
+        return redirect('login')
+    return render(request, 'signup.html')

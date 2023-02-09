@@ -20,7 +20,7 @@
           {%for detail1 in d1%}
           <tr>
             <td>{{forloop.counter}}</td>
-            <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name}} </a></td>
+            <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name|capfirst}} </a></td>
             <td>{{detail1.joined_date}}</td>
             <td><a href="{% url 'update_customer' detail1.id%}"><button id="updatebtn" type="submit">Update</button></a>
               <a href="{% url 'delete_customer' detail1.id%}"><button id="deletebtn" type="submit">Delete</button></a>

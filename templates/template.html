@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/index.css'%}">
     <link rel="stylesheet" href="{% static 'css/dashboard_table.css'%}">
     <link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -47,11 +48,17 @@
         </div>
         <div class="navbar_list">
             <ul>
-                <div class="driving_image"><img src="{% static 'imgs/imgs.png'%}" alt=""><a href="">Hello,Admin</a></div>
+                <div class="driving_image"><img src="{% static 'imgs/imgs.png'%}" alt=""><a href="">Hello,Admin</a>
+                </div>
                 <li><a href="{% url 'index'%}"><i class="fa fa-home"></i> Home</a></li>
                 <li><a href="{% url 'dashboard'%}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li><a href="{% url 'customer_list'%}"><i class="fa fa-user"></i> Customers</a></li>
-                <li><a href=""><i class="fa fa-info"></i> Info</a></li>
+                {%if request.user.is_authenticated %}
+                <li><a href="{% url 'logout'%}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                {%else%}
+                <li><a href="{% url 'login'%}"><i class=""></i><button id="deletebtns"> Login</button> </a></li>
+                {%endif%}
+
             </ul>
         </div>
 
@@ -67,4 +74,5 @@
     <script src="{% static 'js/navbar_script.js'%}"></script>
 
 </body>
+
 </html>

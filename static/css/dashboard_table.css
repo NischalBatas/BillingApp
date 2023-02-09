@@ -1,9 +1,159 @@
+/* Pie chart size */
+#pie-chart {
+  min-width:1035px;
+  min-height: 450px;
+  
+}
+/* .main-svg{
+  background-color: none;
+} */
+
+/* box size */
+.js-plotly-plot .plotly .main-svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  border-radius: 20px;
+  padding: 0;
+  width: 100%;
+  height: 390px; 
+  
+}
+
+.js-plotly-plot .plotly .modebar {
+  display: none;
+}
+
+
+
+/* First color */
+.surface{
+  pointer-events: all;
+  stroke-width: 0;
+  fill: rgb(34, 130, 209)!important;
+  fill-opacity: 1;
+  stroke: rgb(68, 68, 68);
+  stroke-opacity: 1;
+}
+
+.traces:first-child .legendpoints .legendpie{
+  stroke-width: 0;
+  fill: rgb(34, 130, 209) !important;
+  fill-opacity: 1;
+  stroke: rgb(68, 68, 68);
+  stroke-opacity: 1;
+}
+
+/* first blue code text */
+.slicetext {
+  font-family: "Open Sans", verdana, arial, sans-serif;
+  font-size: 12px;
+  fill: rgb(243, 241, 241) !important;
+  fill-opacity: 1;
+  white-space: pre;
+}
+
+
+/* Second color */
+.trace .slice:last-child .surface{
+  pointer-events: all;
+  stroke-width: 0;
+  fill: rgb(29, 211, 187)!important;
+  fill-opacity: 1;
+  stroke: rgb(68, 68, 68);
+  stroke-opacity: 1;
+}
+
+.traces:last-child .legendpoints .legendpie{
+  stroke-width: 0;
+  fill: rgb(29, 211, 187) !important;
+  fill-opacity: 1;
+  stroke: rgb(68, 68, 68);
+  stroke-opacity: 1;
+}
+
+
+
+
+
+/* 1025px */
+@media only screen and (max-width:1025px){
+  /* Pie chart size */
+  #pie-chart {
+    min-width:760px;
+    min-height: 375px;
+    margin-left: 1rem;
+  }
+
+
+/* box size */
+.js-plotly-plot .plotly .main-svg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  width: 100%;
+  height: 320px;
+  
+
+  
+}
+}
+
+@media only screen and (max-width:769px){
+  /* Pie chart size */
+  #pie-chart {
+    /* position: relative !important; */
+    min-width:0px;
+    min-height: 0px;
+    max-width: 750px !important;
+    max-height: 390px !important;
+    margin-right: 1rem;
+    
+  }
+
+  .svg-container{
+    /* position: relative !important; */
+  }
+
+
+/* box size */
+.js-plotly-plot .plotly .main-svg {
+  /* position: absolute !important; */
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  height: 350px;
+  width: 100%;
+  
+
+  
+}
+}
+
+@media only screen and (max-width:460px){
+  /* box size */
+.js-plotly-plot .plotly .main-svg {
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  height: none;
+ 
+  width: 100%;
+  
+
+}
+}
+
+
 .dashboard_customerss {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #e0edf0;
+    
   }
 
 
@@ -121,10 +271,7 @@
   width: 725px;
 }
 
-#pie-chart{
-  width: 350px;
-  height: 300px;
-}
+
 
 }
 

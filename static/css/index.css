@@ -1,7 +1,4 @@
-* {
-  padding: 0;
-  margin: 0;
-}
+
 
 .index_customers {
   display: flex;
@@ -302,3 +299,35 @@
     
   }
 }
+
+
+/* Login form */
+.navbar_list button{
+  font-size: 18px;
+  padding: 0.2rem 0.4rem 0.2rem;
+  color: #fff;
+  background-color: #b92d1b;
+  border-radius: 5px;
+  border: none;
+}
+
+.navbar_list button:hover{
+  background-color: #fff;
+  color: #b92d1b;
+  border: 1px solid #b92d1b;
+}
+
+.create_btn a{
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0.5rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #030303;
+ }
+
+ .create_btn a:hover{
+  
+  color:#b92d1b;
+ }

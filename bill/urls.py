@@ -15,7 +15,10 @@ urlpatterns = [
     path('update_customer/<int:id>',views.update_customer,name='update_customer'),
     path('bar_graph',views.bar_graph_view,name='bar_graph'),
     path('dashboard',views.dashboard,name='dashboard'),
-    path('customer',views.customer_list,name='customer_list')
+    path('customer',views.customer_list,name='customer_list'),
+    path('login',views.user_login,name='login'),
+    path('logout',views.user_logout,name='logout'),
+    path('signup',views.user_signup,name='signup')
 ]
 
 
