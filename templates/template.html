@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/index.css'%}">
     <link rel="stylesheet" href="{% static 'css/dashboard_table.css'%}">
     <link href='https://fonts.googleapis.com/css?family=Manrope' rel='stylesheet'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -40,9 +40,12 @@
         <div class="navbar_title">
 
             <div class="navbar_title_search " id="searchborder">
-                <input type="text" placeholder="Search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-
+                <form method="post" action="{% url 'searchs'%}">
+                    {%csrf_token%}
+                    <input class="form-control me-2" name='searchs' type="search" placeholder="Search Name"
+                        aria-label="Search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
             </div>
 
         </div>

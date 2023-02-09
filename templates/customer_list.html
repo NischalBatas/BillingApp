@@ -1,39 +1,35 @@
 {%extends 'template.html'%}
 
 {% block content%}
-<div class="index_customers">
-       
-      
-      
-    <div class="index_customers_table">
-      <div class="index_customers_table_title">
-        <p>Customer List</p>
-      </div>
-      <div class="index_customer_table_list">
-        <table id="customers_table">
-          <tr>
-            <th>S.No.</th>
-            <th>Name</th>
-            <th>Issued Date</th>
-            <th>Action</th>
-          </tr>
-          {%for detail1 in d1%}
-          <tr>
-            <td>{{forloop.counter}}</td>
-            <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name|capfirst}} </a></td>
-            <td>{{detail1.joined_date}}</td>
-            <td><a href="{% url 'update_customer' detail1.id%}"><button id="updatebtn" type="submit">Update</button></a>
-              <a href="{% url 'delete_customer' detail1.id%}"><button id="deletebtn" type="submit">Delete</button></a>
-            </td>
-          </tr>
-          {%endfor%}
-  
-  
-  
-        </table>
-  
-      </div>
-    </div>
+     <!-- New -->
+     <div class="project_table" >
+      <div class="dashboard_customerss_table_title">
+          <p  style="margin-top: 4rem;">Customer List</p>
+        </div>
+      <table class="project_tables_main">
+          <thead>
+              <tr>
+              <th>S.No.</th>
+              <th>Name</th>
+              <th>Issued Date</th>
+              <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              {%for detail1 in d1%}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td> <a class="customer_name_table" href="{% url 'customform' detail1.id%}">{{detail1.name|capfirst}} </a></td>
+              <td>{{detail1.joined_date}}</td>
+              <td><a href="{% url 'update_customer' detail1.id%}"><button id="updatebtn" type="submit">Update</button></a>
+                <a href="{% url 'delete_customer' detail1.id%}"><button id="deletebtn" type="submit">Delete</button></a>
+              </td>
+            </tr>
+            {%endfor%}
+          </tbody>
+
+      </table>
   </div>
+
 
 {%endblock%}

@@ -11,7 +11,7 @@
 .index_customers_billforms {
   background-color: #fff;
   padding: 1rem 2rem 2rem;
-  margin: 1rem 0 2rem;
+  margin: 4rem 0 2rem;
   border-radius: 10px;
   max-width: 300px;
 }
@@ -331,3 +331,79 @@
   
   color:#b92d1b;
  }
+
+
+.project_table{
+  padding: 0 25%;
+  background-color: #e0edf0;
+  padding-bottom: 1rem;
+}
+
+.project_tables_main{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0 0;
+}
+
+.project_tables_main thead{
+  background-color: #04aa6d;
+ 
+}
+
+
+.project_tables_main thead tr th{
+  color: #fff;
+  font-size: 18px;
+}
+
+.project_tables_main thead tr th,
+.project_tables_main tbody tr td{
+  font-size: 14px;
+  font-weight:600;
+  Letter-spacing: 0.35px;
+ 
+  opacity: 1;
+  padding: 8px;
+  vertical-align: top;
+ 
+  border: 1px solid #ddd;
+  
+}
+
+.project_tables_main tbody tr td{
+  font-size: 14px;
+  Letter-spacing: 0.35px;
+  font-weight: normal;
+  
+  background-color: #fff;
+  padding: 8px;
+  text-align: center;
+  
+}
+
+@media only screen and (max-width:1950px){
+  .project_table{
+    padding: 0 15%;
+    padding-bottom: 1rem;
+    background-color: #e0edf0;
+  }
+  
+}
+
+@media only screen and (max-width:1550px){
+  .project_table{
+    padding: 0 6%;
+    padding-bottom: 1rem;
+    background-color: #e0edf0;
+  }
+  
+}
+
+@media only screen and (max-width:1050px){
+  .project_table{
+    padding: 0 2%;
+    padding-bottom: 1rem;
+    background-color: #e0edf0;
+  }
+  
+}

@@ -210,3 +210,16 @@ def user_signup(request):
         user.save()
         return redirect('login')
     return render(request, 'signup.html')
+
+
+def searchs(request):
+    if request.method=='POST':
+        searched=request.POST['searchs']
+        venues=Detail.objects.filter(name__contains=searched)
+        context={
+            "searched":searched,
+            "venues":venues
+        }  
+        return render(request,'searchbar.html',context)
+    else:
+        return render(request,'searchbar.html')

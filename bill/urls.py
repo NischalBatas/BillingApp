@@ -16,6 +16,7 @@ urlpatterns = [
     path('bar_graph',views.bar_graph_view,name='bar_graph'),
     path('dashboard',views.dashboard,name='dashboard'),
     path('customer',views.customer_list,name='customer_list'),
+    path('search',views.searchs,name="searchs"),
     path('login',views.user_login,name='login'),
     path('logout',views.user_logout,name='logout'),
     path('signup',views.user_signup,name='signup')
